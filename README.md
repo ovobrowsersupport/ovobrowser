@@ -50,22 +50,31 @@
 ## 检测通过的网站列表
 
 - [demo.fingerprint.com](https://demo.fingerprint.com/playground)
-<video src="https://raw.githubusercontent.com/ovobrowsersupport/ovobrowser/main/video/fingerprint-pro.mp4" controls="controls" width="100%">
-</video>
+- 
+https://github.com/user-attachments/assets/18958668-6489-44f5-9b7e-91d897c3ce86
 
 - [browserscan.net](https://www.browserscan.net/)
-<video src="https://raw.githubusercontent.com/ovobrowsersupport/ovobrowser/main/video/browserscan.mp4" controls="controls" width="100%">
-</video>
+
+
+https://github.com/user-attachments/assets/ef4b4520-d504-430c-84c8-129208074986
+
+
 
 - [scrapingcourse.com](https://scrapingcourse.com)
 
 - [deviceandbrowserinfo.com](https://deviceandbrowserinfo.com/are_you_a_bot)
-<video ssrc="https://raw.githubusercontent.com/ovobrowsersupport/ovobrowser/main/video/device-browser-info.mp4" controls="controls" width="100%">
-</video>
+
+
+https://github.com/user-attachments/assets/3ee4751f-d6bc-4684-8c6e-58f815927029
+
+
 
 - [bot.sannysoft.com](https://bot.sannysoft.com/)
-<video ssrc="https://raw.githubusercontent.com/ovobrowsersupport/ovobrowser/main/video/bot-sannysoft.mp4" controls="controls" width="100%">
-</video>
+
+
+https://github.com/user-attachments/assets/61f3f519-991e-40af-ab76-70e4a5db9d13
+
+
 
 - [bot-detector.rebrowser.net](https://bot-detector.rebrowser.net/)
 
