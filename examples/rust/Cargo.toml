@@ -1,0 +1,8 @@
+[package]
+name = "ovobrowser-launch"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "ovobrowser-launch"
+path = "src/main.rs"

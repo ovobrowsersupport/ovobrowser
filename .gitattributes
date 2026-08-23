@@ -1,0 +1,14 @@
+* text=auto eol=lf
+
+# Keep Windows command scripts native when checked out on Windows.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary assets
+*.gif binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.zip binary

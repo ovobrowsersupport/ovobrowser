@@ -1,0 +1,44 @@
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors and local settings
+.idea/
+.vscode/
+*.suo
+*.user
+
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+
+# Browser binaries, release archives, and local profiles
+*.exe
+*.dll
+*.zip
+*.7z
+profiles/
+user-data/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# .NET, Rust, Java, and Go build output
+bin/
+obj/
+target/
+*.class
+*.jar
+examples/go/ovobrowser-launch
+examples/go/ovobrowser-launch.exe
