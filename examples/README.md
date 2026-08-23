@@ -5,4 +5,4 @@
 - 中文：[README.md](../README.md)
 - English：[README.en.md](../README.en.md)
 
-本目录只放可直接跑的脚本（把 `OVO_CHROME` 指到 [Releases](https://github.com/YOUR_GITHUB_USER/ovobrowser/releases) 解压出的 `chrome.exe`）。
+本目录只放可直接跑的脚本（把 `OVO_CHROME` 指到 [Releases](https://github.com/ovobrowsersupport/ovobrowser/releases) 解压出的 `chrome.exe`）。

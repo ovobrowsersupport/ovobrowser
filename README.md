@@ -3,12 +3,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/YOUR_GITHUB_USER/ovobrowser/releases"><img src="https://img.shields.io/github/v/release/YOUR_GITHUB_USER/ovobrowser" alt="Release"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/YOUR_GITHUB_USER/ovobrowser" alt="License"></a>
-  <a href="https://github.com/YOUR_GITHUB_USER/ovobrowser/commits/main"><img src="https://img.shields.io/github/last-commit/YOUR_GITHUB_USER/ovobrowser" alt="Last Commit"></a>
+  <a href="https://github.com/ovobrowsersupport/ovobrowser/releases"><img src="https://img.shields.io/github/v/release/ovobrowsersupport/ovobrowser" alt="Release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/ovobrowsersupport/ovobrowser" alt="License"></a>
+  <a href="https://github.com/ovobrowsersupport/ovobrowser/commits/main"><img src="https://img.shields.io/github/last-commit/ovobrowsersupport/ovobrowser" alt="Last Commit"></a>
   <br>
-  <a href="https://github.com/YOUR_GITHUB_USER/ovobrowser/stargazers"><img src="https://img.shields.io/github/stars/YOUR_GITHUB_USER/ovobrowser" alt="Stars"></a>
-  <a href="https://github.com/YOUR_GITHUB_USER/ovobrowser/releases"><img src="https://img.shields.io/github/downloads/YOUR_GITHUB_USER/ovobrowser/total" alt="Downloads"></a>
+  <a href="https://github.com/ovobrowsersupport/ovobrowser/stargazers"><img src="https://img.shields.io/github/stars/ovobrowsersupport/ovobrowser" alt="Stars"></a>
+  <a href="https://github.com/ovobrowsersupport/ovobrowser/releases"><img src="https://img.shields.io/github/downloads/ovobrowsersupport/ovobrowser/total" alt="Downloads"></a>
 </p>
 
 <p align="center">
@@ -27,7 +27,7 @@
 - 时区 / `lang` / `accept-lang` 与出口 IP 对齐
 - 任意语言：拼命令行 → 拉起 `chrome.exe`（Python / Node / Go / C# / PowerShell / Java / Rust 示例都在本页）
 
-**下载最新包** → [Releases v1.0.0](https://github.com/YOUR_GITHUB_USER/ovobrowser/releases/tag/v1.0.0)
+**下载最新包** → [Releases v1.0.0](https://github.com/ovobrowsersupport/ovobrowser/releases/tag/v1.0.0)
 
 ---
 
@@ -73,9 +73,9 @@
 
 | 内核 | 版本 | 下载 |
 |---|---|---|
-| **150**（推荐） | `150.0.7871.124` | [ovobrowser-150-…-win64-portable.zip](https://github.com/YOUR_GITHUB_USER/ovobrowser/releases/download/v1.0.0/ovobrowser-150-150.0.7871.124-win64-portable.zip) |
-| 144 | `144.0.7559.132` | [ovobrowser-144-…-win64-portable.zip](https://github.com/YOUR_GITHUB_USER/ovobrowser/releases/download/v1.0.0/ovobrowser-144-144.0.7559.132-win64-portable.zip) |
-| 138 | `138.0.7204.183` | [ovobrowser-138-…-win64-portable.zip](https://github.com/YOUR_GITHUB_USER/ovobrowser/releases/download/v1.0.0/ovobrowser-138-138.0.7204.183-win64-portable.zip) |
+| **150**（推荐） | `150.0.7871.124` | [ovobrowser-150-…-win64-portable.zip](https://github.com/ovobrowsersupport/ovobrowser/releases/download/v1.0.0/ovobrowser-150-150.0.7871.124-win64-portable.zip) |
+| 144 | `144.0.7559.132` | [ovobrowser-144-…-win64-portable.zip](https://github.com/ovobrowsersupport/ovobrowser/releases/download/v1.0.0/ovobrowser-144-144.0.7559.132-win64-portable.zip) |
+| 138 | `138.0.7204.183` | [ovobrowser-138-…-win64-portable.zip](https://github.com/ovobrowsersupport/ovobrowser/releases/download/v1.0.0/ovobrowser-138-138.0.7204.183-win64-portable.zip) |
 
 150 对 FingerprintJS 的 ML 更友好；三套开关基本一致（144/150 的 audio 噪声更完整，canvas 主线程与 Worker 已对齐）。
 
