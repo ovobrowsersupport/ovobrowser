@@ -50,14 +50,22 @@
 ## 检测通过的网站列表
 
 - [demo.fingerprint.com](https://demo.fingerprint.com/playground)
+<video src="./video/fingerprint-pro.mp4" controls="controls" width="100%">
+</video>
 
 - [browserscan.net](https://www.browserscan.net/)
+<video src="./video/browserscan.mp4" controls="controls" width="100%">
+</video>
 
 - [scrapingcourse.com](https://scrapingcourse.com)
 
 - [deviceandbrowserinfo.com](https://deviceandbrowserinfo.com/are_you_a_bot)
+<video src="./video/device-browser-info.mp4" controls="controls" width="100%">
+</video>
 
 - [bot.sannysoft.com](https://bot.sannysoft.com/)
+<video src="./video/bot-sannysoft.mp4" controls="controls" width="100%">
+</video>
 
 - [bot-detector.rebrowser.net](https://bot-detector.rebrowser.net/)
 
