@@ -27,6 +27,10 @@ Portable builds: **Windows x64** · kernels **138 / 144 / 150** · product name 
 - Timezone / `lang` / `accept-lang` aligned to the exit IP
 - Any language: build argv → spawn `chrome.exe` (Python / Node / Go / C# / PowerShell / Java / Rust on this page)
 
+### Client for everyday users
+
+For everyday users we already ship a GUI fingerprint-browser client: install it, then manage profiles, proxies, teams, and window sync — no command line. Bilingual docs and screenshots: **[ovobrowser-manger](https://github.com/ovobrowsersupport/ovobrowser-manger)**. Download: [ovobrowser.com](https://ovobrowser.com/).
+
 **Download** → [Releases v1.0.0](https://github.com/ovobrowsersupport/ovobrowser/releases/tag/v1.0.0)
 
 ---
@@ -34,6 +38,7 @@ Portable builds: **Windows x64** · kernels **138 / 144 / 150** · product name 
 ## Contents
 
 - [Sites that pass](#sites-that-pass)
+- [Client for everyday users](#client-for-everyday-users)
 - [Download](#download)
 - [30-second start](#30-second-start)
 - [Why a custom build](#why-a-custom-build)

@@ -27,6 +27,10 @@
 - 时区 / `lang` / `accept-lang` 与出口 IP 对齐
 - 任意语言：拼命令行 → 拉起 `chrome.exe`（Python / Node / Go / C# / PowerShell / Java / Rust 示例都在本页）
 
+### 普通用户客户端
+
+针对普通用户，我们已经开发了图形化指纹浏览器客户端：装好就能管理环境、代理、团队和窗口同步，不必自己拼命令行。中英双语说明与软件截图见 **[ovobrowser-manger](https://github.com/ovobrowsersupport/ovobrowser-manger)**。官网下载：[ovobrowser.com](https://ovobrowser.com/)。
+
 **下载最新包** → [Releases v1.0.0](https://github.com/ovobrowsersupport/ovobrowser/releases/tag/v1.0.0)
 
 ---
@@ -34,6 +38,7 @@
 ## 目录
 
 - [检测通过的网站列表](#检测通过的网站列表)
+- [普通用户客户端](#普通用户客户端)
 - [下载](#下载)
 - [30 秒上手](#30-秒上手)
 - [为什么自己编译](#为什么自己编译)
