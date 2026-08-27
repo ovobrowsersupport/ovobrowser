@@ -44,6 +44,8 @@
 - [代理（带账密）](#代理带账密)
 - [详细文档](#详细文档)
 - [许可](#许可)
+- [联系我们](#联系我们)
+- [Star History](#star-history)
 
 ---
 
@@ -494,3 +496,23 @@ Chromium `--proxy-server` **不支持用户名密码**。住宅代理请：
 ## 许可
 
 文档与示例：本仓库 [LICENSE](LICENSE)（MIT）。内核二进制遵循 Chromium / ungoogled-chromium 上游许可。
+
+---
+
+## 联系我们
+
+- QQ 群：`1108811142`
+- Telegram：[t.me/ovobrowser_group](https://t.me/ovobrowser_group)
+- 邮箱：[support@ovobrowser.com](mailto:support@ovobrowser.com)
+
+---
+
+## Star History
+
+<a href="https://www.star-history.com/#ovobrowsersupport/ovobrowser&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ovobrowsersupport/ovobrowser&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ovobrowsersupport/ovobrowser&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ovobrowsersupport/ovobrowser&type=Date" width="600" />
+  </picture>
+</a>

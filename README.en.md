@@ -44,6 +44,8 @@ Portable builds: **Windows x64** · kernels **138 / 144 / 150** · product name 
 - [Authenticated proxies](#authenticated-proxies)
 - [Documentation](#documentation)
 - [License](#license)
+- [Contact](#contact)
+- [Star History](#star-history)
 
 ---
 
@@ -406,3 +408,23 @@ browser → local unauthenticated SOCKS5 → (optional ladder :7890) → upstrea
 ## License
 
 Docs/examples: [LICENSE](LICENSE) (MIT). Binaries: Chromium / ungoogled-chromium.
+
+---
+
+## Contact
+
+- QQ group: `1108811142`
+- Telegram: [t.me/ovobrowser_group](https://t.me/ovobrowser_group)
+- Email: [support@ovobrowser.com](mailto:support@ovobrowser.com)
+
+---
+
+## Star History
+
+<a href="https://www.star-history.com/#ovobrowsersupport/ovobrowser&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ovobrowsersupport/ovobrowser&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ovobrowsersupport/ovobrowser&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ovobrowsersupport/ovobrowser&type=Date" width="600" />
+  </picture>
+</a>
