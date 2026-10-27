@@ -19,7 +19,7 @@
 
 Source-level Chromium fingerprint kernel. Not JS injection, not `playwright-stealth` — fingerprints are patched in C++ and compiled into the binary. Detection sites see a normal Chrome because it *is* Chromium.
 
-Portable builds: **Windows x64** · kernels **138 / 144 / 150** · product name **ovobrowser** (UA / Client Hints still report Chrome so you are not scored as an unknown browser)
+Portable builds: **Windows x64** · kernels **138 / 144 / 150 / 155** · product name **ovobrowser** (UA / Client Hints still report Chrome so you are not scored as an unknown browser)
 
 - 5 independent noise classes: Canvas / WebGL / Audio / ClientRects / Font (off by default; optional fixed seeds)
 - UA-CH, platform, cores, memory, screen, DPR, battery, DNT, speech voices
@@ -31,7 +31,7 @@ Portable builds: **Windows x64** · kernels **138 / 144 / 150** · product name 
 
 For everyday users we already ship a GUI fingerprint-browser client: install it, then manage profiles, proxies, teams, and window sync — no command line. Bilingual docs and screenshots: **[ovobrowser-manger](https://github.com/ovobrowsersupport/ovobrowser-manger)**. Download: [ovobrowser.com](https://ovobrowser.com/).
 
-**Download** → [Releases v1.0.0](https://github.com/ovobrowsersupport/ovobrowser/releases/tag/v1.0.0)
+**Download** → [Releases](https://github.com/ovobrowsersupport/ovobrowser/releases/latest)
 
 ---
 
@@ -73,11 +73,12 @@ Unzip; `chrome.exe` is the kernel.
 
 | Kernel | Version | Asset |
 |---|---|---|
-| **150** (recommended) | `150.0.7871.124` | [ovobrowser-150-…-win64-portable.zip](https://github.com/ovobrowsersupport/ovobrowser/releases/download/v1.0.0/ovobrowser-150-150.0.7871.124-win64-portable.zip) |
-| 144 | `144.0.7559.132` | [ovobrowser-144-…-win64-portable.zip](https://github.com/ovobrowsersupport/ovobrowser/releases/download/v1.0.0/ovobrowser-144-144.0.7559.132-win64-portable.zip) |
-| 138 | `138.0.7204.183` | [ovobrowser-138-…-win64-portable.zip](https://github.com/ovobrowsersupport/ovobrowser/releases/download/v1.0.0/ovobrowser-138-138.0.7204.183-win64-portable.zip) |
+| 155 (latest) | `155.0.8059.39` | [ovobrowser-155-…-win64-portable.zip](https://github.com/ovobrowsersupport/ovobrowser/releases/latest/download/ovobrowser-155-155.0.8059.39-win64-portable.zip) |
+| **150** (recommended) | `150.0.7871.124` | [ovobrowser-150-…-win64-portable.zip](https://github.com/ovobrowsersupport/ovobrowser/releases/latest/download/ovobrowser-150-150.0.7871.124-win64-portable.zip) |
+| 144 | `144.0.7559.132` | [ovobrowser-144-…-win64-portable.zip](https://github.com/ovobrowsersupport/ovobrowser/releases/latest/download/ovobrowser-144-144.0.7559.132-win64-portable.zip) |
+| 138 | `138.0.7204.183` | [ovobrowser-138-…-win64-portable.zip](https://github.com/ovobrowsersupport/ovobrowser/releases/latest/download/ovobrowser-138-138.0.7204.183-win64-portable.zip) |
 
-150 is friendliest to FingerprintJS ML. Flag sets are the same; 144/150 have fuller audio noise and canvas main/Worker alignment.
+150 is friendliest to FingerprintJS ML. 155 is the newest kernel, with exactly the same flags as 150. Flag sets are the same; 144 / 150 / 155 have fuller audio noise and canvas main/Worker alignment. All four portable builds bundle Widevine for DRM video.
 
 ```bat
 set OVO_CHROME=D:\ovobrowser-150\chrome.exe
@@ -124,7 +125,8 @@ Rule: **omit a flag = real hardware / upstream default**. **Pass a flag = spoof 
 | `--fingerprint-platform=` | platform + UA-CH | `windows` / `macos` / `linux` / `android` / `ios` | real OS |
 | `--fingerprint-platform-version=` | UA-CH `platformVersion` | `10.0.0` (Win11: `13.0.0+`) | real |
 | `--fingerprint-hardware-concurrency=` | hardwareConcurrency | `8` | real cores |
-| `--fingerprint-device-memory=` | deviceMemory | `0.25/0.5/1/2/4/8` | default `8` |
+| `--fingerprint-device-memory=` | deviceMemory + `Sec-CH-Device-Memory` header | 138/144: `0.25/0.5/1/2/4/8`; 150/155 desktop: `2/4/8/16/32`, mobile: `1/2/4/8` (invalid values snap to the nearest step) | default `8` (JS and header match) |
+| `--fingerprint-max-touch-points=` | `navigator.maxTouchPoints` + `any-pointer` | `0`–`10` (`0` for a regular desktop) | follows the host; fixed at 5 on android / ios |
 | `--fingerprint-dnt=` | doNotTrack | `1` / `0` / `unspecified` | `null` |
 | `--fingerprint-battery=` | getBattery | `1,1.0,0,Infinity` | real battery |
 | `--fingerprint-disable-speech-voices` | empty voice list | flag only | real voices |
@@ -140,7 +142,7 @@ UA version **must** be `MAJOR.0.0.0`. Full patch goes only in `--fingerprint-bra
 | `--fingerprint-screen=` | `screen.*` (**CSS logical px**) | `1536x864` | real screen |
 | `--fingerprint-device-scale-factor=` | DPR / CSS resolution / `Sec-CH-DPR` | `1.25` | **host scale** (leaks the machine) |
 | `--fingerprint-screen-color-depth=` | colorDepth | `24` | real |
-| `--fingerprint-screen-width=` / `-height=` | 144/150 split form | same as screen | — |
+| `--fingerprint-screen-width=` / `-height=` | 144 / 150 / 155 split form | same as screen | — |
 
 ### GPU / WebRTC / hide APIs
 
@@ -178,7 +180,7 @@ All three must match the **exit IP**. Pass **both** lang flags.
 | `--disable-quic` | required with SOCKS or HTTPS often fails |
 | `--user-data-dir=` | persist cookies/passwords |
 
-Always on: ClientRects consistency; 144/150 canvas main/Worker match; UA aligned with kernel major; default search restored to Google.
+Always on: ClientRects consistency (integer coordinates are not noised); 144 / 150 / 155 canvas main/Worker match; anti-debugging on by default (pass `--fingerprint-allow-debugger` to debug yourself); bookmark bar not shown permanently; `outerWidth/Height` report the real window size; UA aligned with kernel major; default search restored to Google.
 
 ---
 
@@ -189,7 +191,7 @@ Pass = noise on; omit = native (keep all off for FingerprintJS green).
 | Flag | Surface |
 |---|---|
 | `--fingerprint-canvas[=seed]` | toDataURL / getImageData / measureText |
-| `--fingerprint-webgl[=seed]` | WebGL readPixels |
+| `--fingerprint-webgl[=seed]` | WebGL `readPixels` / `toDataURL` / `drawImage` (all three match) |
 | `--fingerprint-audio[=seed]` | AudioContext |
 | `--fingerprint-rects[=seed]` | ClientRects |
 | `--fingerprint-font[=seed]` | font metrics / list |
@@ -407,6 +409,93 @@ browser → local unauthenticated SOCKS5 → (optional ladder :7890) → upstrea
 | Fingerprint surfaces and implementation | [FINGERPRINT.md](docs/en/FINGERPRINT.md) | [FINGERPRINT.md](docs/zh/FINGERPRINT.md) |
 | Recommended launch recipes | [RECIPES.md](docs/en/RECIPES.md) | [RECIPES.md](docs/zh/RECIPES.md) |
 | Repository structure | [STRUCTURE.md](docs/STRUCTURE.md) | — |
+
+### Changelog
+
+<details>
+<summary><strong>Click to expand: kernel updates since v1.0.0 (2026-08-26 – 2026-10-20)</strong></summary>
+
+<br>
+
+<details>
+<summary><strong>2026-10-20</strong> · 11 details aligned against a commercial fingerprint browser, plus Google homepage sign-in (138 / 144 / 150 / 155)</summary>
+
+We compared our kernel side by side with a commercial fingerprint browser and genuine Chrome 155. The items below used to differ from genuine Chrome and could be detected. They now match:
+
+- **`measureText` fix**: With noise flags such as `--fingerprint-font`, text widths could collapse to almost 0. Now only a tiny offset is applied.
+- **WebGL parameters**: On an NVIDIA host spoofed as Intel / AMD, three parameters such as `MAX_VERTEX_UNIFORM_VECTORS` used to leak NVIDIA's 4095. They now report 4096 / 16384 / 212992 to match the spoofed vendor.
+- **WebGPU vendor and architecture**: When the GPU is spoofed, `adapter.info` returns the same short names as genuine Chrome, such as `intel` / `gen-9`, `amd` / `rdna-2`, `nvidia` / `ampere`. It used to return `Google Inc. (Intel)` with an empty architecture.
+- **WebGPU features**: Optional features are no longer hidden per seed. All features the host really supports are reported.
+- **WebGL noise**: `readPixels`, `toDataURL` and `drawImage(webglCanvas)` now return identical results. Before, only `readPixels` was noised, so a simple cross-check exposed it.
+- **Speech voices**: The 19 Google online voices that genuine Chrome ships are added (22 voices with the system ones), with names identical to genuine Chrome.
+- **`outerWidth` / `outerHeight`**: Return the real window size. They used to equal the inner viewport, which a real browser never does. Only when the gap is abnormal (for example DevTools is open) do they fall back to "inner viewport + normal frame", so anti-debugging still works.
+- **ClientRects noise**: Elements with integer coordinates no longer get fractional offsets. Genuine Chrome returns `10, 20`, never `9.9998, 19.9992`. Fractional coordinates are still noised.
+- **Bookmark bar**: No longer shown permanently by default. The visible page height used to be 33px shorter than genuine Chrome. Now, as in genuine Chrome, it appears only on the New Tab page.
+- **Widevine**: The portable builds bundle the Widevine component. `com.widevine.alpha` is available, so DRM video such as Netflix plays.
+- **New flag `--fingerprint-max-touch-points=<0~10>`**: For desktop platforms. It sets `navigator.maxTouchPoints` and keeps `any-pointer: coarse` in sync. Pass `0` for a regular desktop. If omitted it follows the host, so a touchscreen laptop reports 10.
+- **Google homepage sign-in**: After you sign in, the Google homepage opened in a new tab shows your avatar. It used to always show the "Sign in" button.
+
+Verified: lies are 0 on all four kernels, and BrowserScan scores 100% with or without GPU spoofing.
+
+</details>
+
+<details>
+<summary><strong>2026-10-18</strong> · AMD canvas warning, Google sign-in validation headers, deviceMemory (138 / 144 / 150 / 155)</summary>
+
+- **AMD canvas warning**: With canvas noise on an AMD GPU, BrowserScan reported Canvas Tampering. The new canvas noise only flips the lowest alpha bit of semi-transparent anti-aliased edge pixels. It leaves RGB and solid areas untouched, and running the same image through it twice gives the same result. `getImageData`, `toDataURL`, `toBlob` and sub-region reads are consistent with each other.
+- **Google sign-in validation headers**: Requests to Google domains now carry the four headers only genuine Chrome sends: `x-browser-channel / year / validation / copyright`. Values are picked by the UA major version and are byte-identical to genuine Chrome of the same version, which lowers the risk-control friction when signing in to Google.
+- **deviceMemory**: `navigator.deviceMemory` and the `Sec-CH-Device-Memory` request header now report the same value. The header used to leak the real memory. Allowed ranges follow each genuine version: 138 / 144 use 0.25–8; 150 / 155 use 2–32 on desktop and 1–8 on mobile.
+
+</details>
+
+<details>
+<summary><strong>2026-10-13</strong> · New 155 kernel</summary>
+
+- New `155.0.8059.39` kernel, based on ungoogled-chromium 155, with exactly the same flags as 150.
+- The 155 kernel scores 100% on BrowserScan. On FingerprintJS Pro, Bot, Tampering, DevTools, VM and Incognito are all Not detected, the same as 150.
+
+</details>
+
+<details>
+<summary><strong>2026-10-09</strong> · Extensions install from the Chrome Web Store (138 / 144)</summary>
+
+- Clicking "Add to Chrome" on the Chrome Web Store used to spin forever on 144 and show "This item is currently unavailable" on 138. Both now download and install normally.
+- Background extension auto-update is still disabled; the browser does not contact Google on its own to check for extension updates.
+
+</details>
+
+<details>
+<summary><strong>2026-10-07</strong> · Mobile device toolbar</summary>
+
+- **Device toolbar**: With platform set to android / ios and `--fingerprint-screen` passed, a toolbar similar to the DevTools device mode appears at the top of the window. You can:
+  - switch device presets or set a custom width and height;
+  - rotate between portrait and landscape;
+  - change the display scale;
+  - set network throttling.
+- **Phone view**: The phone view is centered and shrinks proportionally when the window is small. The page still sees the device viewport and DPR. It used to stick to the top-left corner and get cropped in small windows.
+
+</details>
+
+<details>
+<summary><strong>2026-10-05</strong> · Mobile consistency fixes</summary>
+
+- **CJK fonts**: On Android / iOS with `--fingerprint-font`, Chinese text no longer renders as boxes. CJK fonts such as Microsoft YaHei, SimSun and PingFang are kept.
+- **Consistent platform info**: The page, Workers and network requests report the same platform. `userAgentData`, `Sec-CH-UA-Platform` and `Sec-CH-UA-Mobile` all switch to Android. iOS no longer sends Client Hints headers.
+- **Touch, pointer and orientation**: On mobile, `maxTouchPoints` is 5, with `pointer: coarse` and `hover: none`. In portrait, `screen.orientation` is `portrait-primary`.
+- **WebGL error**: After spoofing the GPU on mobile, BrowserScan no longer deducts for "WebGL exception".
+- **New Tab page**: The New Tab page opens the Google homepage by default (it used to be blank), and Google no longer returns 404 under an Android UA.
+
+</details>
+
+<details>
+<summary><strong>2026-08-26</strong> · Anti-debugging on by default</summary>
+
+- `debugger` statements in pages (literals, `eval`, `new Function`) no longer pause the page by default. This stops sites from freezing the page with them or using them to detect DevTools.
+- When you need to debug yourself, pass `--fingerprint-allow-debugger` to restore the native behavior.
+
+</details>
+
+</details>
 
 ---
 
