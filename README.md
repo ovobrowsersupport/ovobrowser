@@ -15,7 +15,7 @@
   <a href="README.en.md">English</a> · <strong>中文</strong>
 </p>
 
-<h3 align="center">源码级 Chromium 指纹内核。跨境电商浏览器-指纹浏览器</h3>
+<h3 align="center">源码级 Chromium 指纹内核。</h3>
 
 源码级修改的 Chromium 指纹内核。不是 JS 注入，不是 `playwright-stealth` 那套运行时补丁——指纹在 C++ 里改完再编译进二进制。检测站看到的是普通 Chrome，因为它本来就是 Chromium。
 
@@ -495,6 +495,93 @@ Chromium `--proxy-server` **不支持用户名密码**。住宅代理请：
 | 指纹修改面与实现说明 | [FINGERPRINT.md](docs/zh/FINGERPRINT.md) | [FINGERPRINT.md](docs/en/FINGERPRINT.md) |
 | 推荐启动配方 | [RECIPES.md](docs/zh/RECIPES.md) | [RECIPES.md](docs/en/RECIPES.md) |
 | 仓库目录结构 | [STRUCTURE.md](docs/STRUCTURE.md) | — |
+
+### 版本更新说明
+
+<details>
+<summary><strong>点击展开：v1.0.0 之后的内核更新（2026-08-26 ～ 2026-10-20）</strong></summary>
+
+<br>
+
+<details>
+<summary><strong>2026-10-20</strong> · 对照商业指纹浏览器补齐 11 处细节、Google 首页登录态（138 / 144 / 150 / 155）</summary>
+
+把我们的内核、某商业指纹浏览器、正版 Chrome 155 放在一起逐项对比，下面这些地方原来和正版不一样，可能被识别，现已对齐：
+
+- **`measureText` 修复**：开 `--fingerprint-font` 等噪声后，文字宽度会变成接近 0，现在只做极小的偏移。
+- **WebGL 参数**：真机是 NVIDIA、伪装成 Intel / AMD 时，`MAX_VERTEX_UNIFORM_VECTORS` 等 3 个参数原来露出 NVIDIA 特有的 4095，现在按伪装的厂商返回 4096 / 16384 / 212992。
+- **WebGPU 厂商与架构**：伪装显卡时，`adapter.info` 返回和正版一样的短名，如 `intel` / `gen-9`、`amd` / `rdna-2`、`nvidia` / `ampere`，原来是 `Google Inc. (Intel)`、架构为空。
+- **WebGPU 特性**：不再按种子隐藏可选特性，改报本机真实的全部特性。
+- **WebGL 噪声**：`readPixels`、`toDataURL`、`drawImage(webglCanvas)` 三种读取方式结果完全一致，原来只有 `readPixels` 加了噪声，一比对就能看出来。
+- **语音列表**：补上正版 Chrome 自带的 19 个 Google 在线语音（加上系统语音共 22 个），名称和正版逐字相同。
+- **`outerWidth` / `outerHeight`**：返回真实窗口尺寸，原来等于内视口，真实浏览器不会这样。打开开发者工具导致差值异常时，才回退成「内视口 + 正常边框」，反调试仍然有效。
+- **ClientRects 噪声**：整数坐标的元素不再加小数偏移（正版返回 `10, 20`，不会是 `9.9998, 19.9992`），带小数的坐标照常加噪声。
+- **书签栏**：默认不再常驻。原来网页可视高度比正版矮 33px，现在和正版一样只在新标签页显示。
+- **Widevine**：便携包里带上了 Widevine 组件，`com.widevine.alpha` 可用，Netflix 等 DRM 视频能播放。
+- **新参数 `--fingerprint-max-touch-points=<0~10>`**：用于桌面平台，改 `navigator.maxTouchPoints`，并同步 `any-pointer: coarse`。普通台式机传 `0`。不传则跟随宿主机，触屏笔记本会报 10。
+- **Google 首页登录态**：登录后新标签页打开的 Google 首页能正常显示头像，原来始终显示「登录」按钮。
+
+验证结果：四个内核的 lies 均为 0，BrowserScan 不论是否伪装 GPU 都是 100%。
+
+</details>
+
+<details>
+<summary><strong>2026-10-18</strong> · AMD 显卡 Canvas 报红、Google 登录校验头、deviceMemory（138 / 144 / 150 / 155）</summary>
+
+- **AMD 显卡 Canvas 报红**：在 AMD 显卡上开画布噪声，BrowserScan 会报 Canvas Tampering。新的画布噪声只改抗锯齿边缘半透明像素的 alpha 最低位，不动 RGB 和纯色区域，同一画面处理两遍结果不变。`getImageData`、`toDataURL`、`toBlob`、子区域读取的结果彼此一致。
+- **Google 登录校验头**：发往 Google 域名的请求补上正版 Chrome 才有的 `x-browser-channel / year / validation / copyright` 四个请求头，按 UA 主版本取值，和同版本正版逐字节一致，登录 Google 账号更不容易被风控。
+- **deviceMemory**：`navigator.deviceMemory` 与请求头 `Sec-CH-Device-Memory` 统一成同一个值，原来请求头报的是真机内存。取值范围也按各版本正版：138 / 144 为 0.25～8；150 / 155 桌面为 2～32、移动端为 1～8。
+
+</details>
+
+<details>
+<summary><strong>2026-10-13</strong> · 新增 155 内核</summary>
+
+- 新增 `155.0.8059.39` 内核（基于 ungoogled-chromium 155），参数和 150 完全相同。
+- 155 内核 BrowserScan 100%；FingerprintJS Pro 的 Bot、Tampering、DevTools、VM、Incognito 均为 Not detected，与 150 一致。
+
+</details>
+
+<details>
+<summary><strong>2026-10-09</strong> · Chrome 应用商店可以安装扩展（138 / 144）</summary>
+
+- 原来在 Chrome 应用商店点「添加至 Chrome」，144 会一直转圈，138 会显示「目前无法获取该产品」，现在都能正常下载安装。
+- 后台自动更新扩展仍然是关闭的，浏览器不会主动连 Google 检查扩展更新。
+
+</details>
+
+<details>
+<summary><strong>2026-10-07</strong> · 移动端设备控制条</summary>
+
+- **设备控制条**：平台设为 android / ios 并传了 `--fingerprint-screen` 时，窗口顶部出现类似 DevTools 设备模式的控制条，可以：
+  - 切换机型预设或自定义宽高；
+  - 旋转横竖屏；
+  - 调整显示比例；
+  - 设置网络限速。
+- **手机画面显示**：手机画面居中显示，窗口较小时按比例整体缩小，网页看到的视口和 DPR 仍是设备的值。原来网页贴在左上角，窗口小了还会被裁掉。
+
+</details>
+
+<details>
+<summary><strong>2026-10-05</strong> · 移动端一致性修复</summary>
+
+- **中文字体**：切到 Android / iOS 并开 `--fingerprint-font` 时，中文不再显示成方框，雅黑、宋体、苹方等中日韩字体会保留。
+- **平台信息一致**：页面、Worker、网络请求三处的平台信息保持一致，`userAgentData`、`Sec-CH-UA-Platform`、`Sec-CH-UA-Mobile` 都会跟着改成 Android。iOS 不再发送 Client Hints 请求头。
+- **触控、指针和屏幕方向**：移动端的 `maxTouchPoints` 为 5，`pointer: coarse`，`hover: none`，竖屏时 `screen.orientation` 为 `portrait-primary`。
+- **WebGL 报错**：移动端伪装 GPU 后，BrowserScan 不再扣「WebGL exception」分。
+- **新标签页**：新标签页默认打开 Google 首页（原来是空白页），安卓 UA 下打开 Google 也不会 404。
+
+</details>
+
+<details>
+<summary><strong>2026-08-26</strong> · 反调试默认开启</summary>
+
+- 网页里的 `debugger` 语句（包括字面量、`eval`、`new Function`）默认不再让页面暂停，防止站点借此卡死页面或检测开发者工具。
+- 需要自己调试时，传 `--fingerprint-allow-debugger` 恢复原生行为。
+
+</details>
+
+</details>
 
 ---
 
