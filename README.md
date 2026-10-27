@@ -15,7 +15,7 @@
   <a href="README.en.md">English</a> · <strong>中文</strong>
 </p>
 
-<h3 align="center">源码级 Chromium 指纹内核。</h3>
+<h3 align="center">源码级 Chromium 指纹内核-指纹浏览器器-跨境电商浏览器</h3>
 
 源码级修改的 Chromium 指纹内核。不是 JS 注入，不是 `playwright-stealth` 那套运行时补丁——指纹在 C++ 里改完再编译进二进制。检测站看到的是普通 Chrome，因为它本来就是 Chromium。
 
