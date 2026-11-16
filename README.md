@@ -35,10 +35,81 @@
 
 ---
 
+## 赞助商
+
+<details open>
+<summary>展开 / 收起</summary>
+
+<br>
+
+ovobrowser 指定合作代理。下图为合作专享价，开通请在对应官网联系客服。
+
+<table>
+  <tr>
+    <td width="460" align="center" valign="middle">
+      <a href="https://kimidata.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser">
+        <img src="docs/assets/kimidata_zh.png" width="440" alt="KimiData">
+      </a>
+    </td>
+    <td valign="middle">
+      <a href="https://kimidata.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser"><strong>KimiData</strong></a><br>
+      ovobrowser 指定合作代理，按 GB 卖流量，另有美国静态 IP。<br>
+      <strong>合作专享价（每 GB）</strong><br>
+      • 1TB $0.30<br>
+      • 10TB $0.25<br>
+      • 50TB $0.20<br>
+      • 100TB $0.18<br>
+      • 美国静态 IP $2<br>
+      <a href="https://kimidata.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser">前往 KimiData →</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="460" align="center" valign="middle">
+      <a href="https://geosk5.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser">
+        <img src="docs/assets/geosk5_zh.png" width="440" alt="GEOSK5">
+      </a>
+    </td>
+    <td valign="middle">
+      <a href="https://geosk5.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser"><strong>GEOSK5</strong></a><br>
+      ovobrowser 指定合作代理，流量按量计费，可另购美国静态 IP。<br>
+      <strong>合作专享价（每 GB）</strong><br>
+      • 1TB $0.30<br>
+      • 10TB $0.25<br>
+      • 50TB $0.20<br>
+      • 100TB $0.18<br>
+      • 美国静态 IP $2<br>
+      <a href="https://geosk5.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser">前往 GEOSK5 →</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="460" align="center" valign="middle">
+      <a href="https://flewip.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser">
+        <img src="docs/assets/flewip_zh.png" width="440" alt="FlewIP">
+      </a>
+    </td>
+    <td valign="middle">
+      <a href="https://flewip.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser"><strong>FlewIP</strong></a><br>
+      ovobrowser 指定合作代理，提供按 GB 流量和美国静态 IP。<br>
+      <strong>合作专享价（每 GB）</strong><br>
+      • 1TB $0.30<br>
+      • 10TB $0.25<br>
+      • 50TB $0.20<br>
+      • 100TB $0.18<br>
+      • 美国静态 IP $2<br>
+      <a href="https://flewip.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser">前往 FlewIP →</a>
+    </td>
+  </tr>
+</table>
+
+</details>
+
+---
+
 ## 目录
 
 - [检测通过的网站列表](#检测通过的网站列表)
 - [普通用户客户端](#普通用户客户端)
+- [赞助商](#赞助商)
 - [下载](#下载)
 - [30 秒上手](#30-秒上手)
 - [为什么自己编译](#为什么自己编译)
