@@ -35,10 +35,81 @@ For everyday users we already ship a GUI fingerprint-browser client: install it,
 
 ---
 
+## Sponsors
+
+<details open>
+<summary>View / Collapse</summary>
+
+<br>
+
+Official ovobrowser proxy partners. The banners show the partner rate. Contact each site to activate.
+
+<table>
+  <tr>
+    <td width="460" align="center" valign="middle">
+      <a href="https://kimidata.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser">
+        <img src="docs/assets/kimidata_en.png" width="440" alt="KimiData">
+      </a>
+    </td>
+    <td valign="middle">
+      <a href="https://kimidata.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser"><strong>KimiData</strong></a><br>
+      Official ovobrowser partner. Pay-as-you-go traffic, plus US static IPs.<br>
+      <strong>Partner price (per GB)</strong><br>
+      • 1TB $0.30<br>
+      • 10TB $0.25<br>
+      • 50TB $0.20<br>
+      • 100TB $0.18<br>
+      • US static IP $2<br>
+      <a href="https://kimidata.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser">Go to KimiData →</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="460" align="center" valign="middle">
+      <a href="https://geosk5.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser">
+        <img src="docs/assets/geosk5_en.png" width="440" alt="GEOSK5">
+      </a>
+    </td>
+    <td valign="middle">
+      <a href="https://geosk5.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser"><strong>GEOSK5</strong></a><br>
+      Official ovobrowser partner. Metered traffic, with US static IPs available.<br>
+      <strong>Partner price (per GB)</strong><br>
+      • 1TB $0.30<br>
+      • 10TB $0.25<br>
+      • 50TB $0.20<br>
+      • 100TB $0.18<br>
+      • US static IP $2<br>
+      <a href="https://geosk5.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser">Go to GEOSK5 →</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="460" align="center" valign="middle">
+      <a href="https://flewip.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser">
+        <img src="docs/assets/flewip_en.png" width="440" alt="FlewIP">
+      </a>
+    </td>
+    <td valign="middle">
+      <a href="https://flewip.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser"><strong>FlewIP</strong></a><br>
+      Official ovobrowser partner. Per-GB traffic and US static IPs.<br>
+      <strong>Partner price (per GB)</strong><br>
+      • 1TB $0.30<br>
+      • 10TB $0.25<br>
+      • 50TB $0.20<br>
+      • 100TB $0.18<br>
+      • US static IP $2<br>
+      <a href="https://flewip.com/?utm_source=ovobrowser&utm_medium=referral&utm_campaign=browser">Go to FlewIP →</a>
+    </td>
+  </tr>
+</table>
+
+</details>
+
+---
+
 ## Contents
 
 - [Sites that pass](#sites-that-pass)
 - [Client for everyday users](#client-for-everyday-users)
+- [Sponsors](#sponsors)
 - [Download](#download)
 - [30-second start](#30-second-start)
 - [Why a custom build](#why-a-custom-build)
